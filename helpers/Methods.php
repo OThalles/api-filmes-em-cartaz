@@ -28,7 +28,23 @@ class Methods {
         return $result;
            
         }
+
+    public function getOne($id) {
+        if($this->getMethod() === 'get') {
+            if(!empty($id)) {
+                $utilities = new Utilities();
+                $data = $utilities->getData();
+                $result['result'][] = [
+                    'name' => str_replace("\n", ' ', $data['name'][$id]),
+                    'desc' => str_replace("\n", ' ', $data['desc'][$id]),
+                    'genre' => str_replace("\n", ' ', $data['genre'][$id])
+                ];
+                return $result;
+            }
+        }
     }
+    }
+
 
 
 ?>
